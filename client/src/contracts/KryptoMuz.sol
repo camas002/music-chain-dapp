@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.8.0;
 
-contract Kryptomuz {
+import './ERC721Connector.sol';
 
-    string public name;
-    string public symbol;
+contract Kryptomuz is ERC721Connector {
 
-    constructor() {
-        name ='Kryptomuz';
-        symbol = 'KMUZ';
+
+    constructor() ERC721Connector('Kryptomuz', 'KMUZ'){
+
     }
 }
