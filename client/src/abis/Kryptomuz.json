@@ -17,7 +17,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -30,7 +31,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/KryptoMuz.sol\":\"Kryptomuz\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/KryptoMuz.sol\":{\"keccak256\":\"0x621dc89589cbdfe5da251d483695a491628569aaa57162571aa5a0ecdf0bc7c7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8674dad6e520c563ce46c0aa5b2e5bd16b254811e9229020e6fc4683273b76ed\",\"dweb:/ipfs/QmeVXNfnZoHqrwH28CvodBowGRkQtUrsGRkDfCjL6CcMay\"]}},\"version\":1}",
@@ -2015,9 +2017,17 @@
     "name": "solc",
     "version": "0.8.11+commit.d7f03943.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x871f5B37306E835465e96c49D21F83136Fa5065A",
+      "transactionHash": "0x1991d4019ab42109dd52a777001f74289fa2c59a70b2afec358aada7242fa4c7"
+    }
+  },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-01-25T05:34:58.795Z",
+  "updatedAt": "2022-01-25T05:45:00.845Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
