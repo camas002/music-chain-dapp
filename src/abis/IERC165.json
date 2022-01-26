@@ -30,7 +30,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IERC165 {\n    /// @notice Query if a contract implements an interface\n    /// @param interfaceID The interface identifier, as specified in ERC-165\n    /// @dev Interface identification is specified in ERC-165. This function\n    ///  uses less than 30,000 gas.\n    /// @return `true` if the contract implements `interfaceID` and\n    ///  `interfaceID` is not 0xffffffff, `false` otherwise\n    function supportsInterface(bytes4 interfaceID) external view returns (bool);\n}",
-  "sourcePath": "C:\\Data\\udemy-nft-marketplace-clarian\\FRONT END PROJECT STARTER KIT\\src\\contracts\\interfaces\\IERC165.sol",
+  "sourcePath": "C:\\Users\\Fanta\\Documents\\GitHub\\music-chain-dapp\\src\\contracts\\interfaces\\IERC165.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/interfaces/IERC165.sol",
     "exportedSymbols": {
@@ -305,7 +305,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2021-12-29T12:18:51.487Z",
+  "updatedAt": "2022-01-26T07:08:14.270Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
