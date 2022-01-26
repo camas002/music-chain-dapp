@@ -1,33 +1,37 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
-    
-    /*
-
-    a. nft to point an address
-    b. keep track of the token ids
-    c. keep track of token owner address token ids
-    d. keep track of how many tokens an owner address has
-    e. cereate an event that emits a transfer log - contract address,
-    where it is being minted to, the id
-
-     */
 
 contract ERC721 {
 
+    event Transfer(
+        address indexed from,
+        address indexed to,
+        uint256 indexed tokenId);
 
     mapping(uint256 => address) private _tokenOwner;
 
     mapping(address => uint256) private _OwnedTokensCount;
 
-    function _mint(address to, uint256 tokenId) internal {
-        require(to != address(0), 'ERC721: minting to the zero address');
-        _tokenOwner[tokenId] = to;
-        _OwnedTokensCount[to] += 1;
-    //     _to = to;
-    //     _tokenId=tokenId;
+    function _exists(uint256 tokenId) internal view returns(bool){
+        // setting the address of nft owner to check the mapping
+        // of the address from tokenOwner at the tokenId
+        address owner = _tokenOwner[tokenId];
+        // return truthiness the address is not zero
+        return owner != address(0);
+    }
 
-    //     return _mint();
-    //
+    function _mint(address to, uint256 tokenId) internal {
+        //requires that the addresss isn't zero
+        require(to != address(0), 'ERC721: minting to the zero address');
+        //requires that the token does not already exist
+        require(!_exists(tokenId), 'ERC721: token already minted');
+        // we are adding a new address with a token id for minting
+        _tokenOwner[tokenId] = to;
+        // keeping track of each address that is minting and adding one
+        _OwnedTokensCount[to] += 1;
+
+        emit Transfer(address(0), to, tokenId);
      }
+
     }
 
