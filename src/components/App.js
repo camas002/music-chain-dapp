@@ -151,29 +151,32 @@ class App extends Component {
     return (
       <div className="container-filled">
         {console.log(this.state.kryptoBirdz)}
-        <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0 shadow">
           <div
             className="navbar-brand col-sm-3 col-md-3 mr-0"
             style={{ color: "white" }}
           >
-            Krypto Birdz NFTs (Non Fungible Tokens)
+            DApollo 
           </div>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className="text-white">{this.state.account}</small>
+              <small className="text-white">Account: {this.state.account}</small>
             </li>
           </ul>
         </nav>
         <div className="container-fluid mt-1">
-          <div className="row">
+          <div className="head-bord row">
             <main role="main" className="col-lg-12 d-flex text-center">
               <div
                 className="content mr-auto ml-auto"
                 style={{ opacity: "0.8" }}
               >
-                <h1 style={{ color: "black" }}>
-                  KryptoBirdz - NFT Marketplace
+                <h1 style={{ color: "white" }}>
+                  DApollo - NFT Marketplace
                 </h1>
+                <p style={{ color: "white" }}>
+                    To mint a song, enter the file URL.
+                </p>
                 <form
                   onSubmit={(event) => {
                     event.preventDefault();
@@ -183,7 +186,7 @@ class App extends Component {
                 >
                   <input
                     type="text"
-                    placeholder="add file location"
+                    placeholder="Enter file URL..."
                     className="mb-1"
                     ref={(input) => (this.kryptoBird = input)}
                   />
