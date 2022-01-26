@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import './ERC721Connector.sol';
 
-contract Kryptomuz is ERC721Connector {
+contract KryptoMuz is ERC721Connector {
 
     // array to store our nfts
     string[] public kryptoMuz;
