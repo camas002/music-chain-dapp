@@ -40,14 +40,23 @@ class App extends Component {
             const abi = Kryptomuz.abi;
             const address = networkData.address;
             const contract = new web3.eth.Contract(abi, address)
-            console.log(contract);
+            this.setState({contract})
+            console.log(this.state.contract);
+
+            // call the total supply of our Krypto Muz
+            // grab the total supply on the front end and log results
+            // go to web3 doc and read up on methods and call
+
+        } else {
+            window.alert('Smart contract not deployed')
         }
     }
 
     constructor(props){
         super(props);
         this.state = {
-            account:''
+            account:'',
+            contract:null,
         }
     }
 
