@@ -27,16 +27,20 @@ class App extends Component {
         const web3 = window.web3
         const accounts = await web3.eth.getAccounts();
         this.setState({account:accounts})
+        console.log(this.state.account)
 
         // create a constant js variable networkId which is set to the blockchain (ganache) network id
-        const networkId = web3.eth.net.getId()
+        const networkId = await web3.eth.net.getId()
 
         //check to see if the networkId is setData (working)
         const networkData = Kryptomuz.networks[networkId]
 
         //check to see if we are hooked up correctly
         if(networkData){
-            
+            const abi = Kryptomuz.abi;
+            const address = networkData.address;
+            const contract = new web3.eth.Contract(abi, address)
+            console.log(contract);
         }
     }
 
@@ -55,11 +59,11 @@ class App extends Component {
                         Kryptomuz NFT's
                     </div>
                     <ul className='navbar-nav px-3'>
-                        <l className='nav-item text-nowrap d-none d-sm-none d-sm-block'>
+                        <li className='nav-item text-nowrap d-none d-sm-none d-sm-block'>
                             <small className='text-white'>
                                 {this.state.account}
                             </small>
-                        </l>
+                        </li>
                         
                     </ul>
                 </nav>
