@@ -27,7 +27,17 @@ class App extends Component {
         const web3 = window.web3
         const accounts = await web3.eth.getAccounts();
         this.setState({account:accounts})
-        console.log(this.state.account)
+
+        // create a constant js variable networkId which is set to the blockchain (ganache) network id
+        const networkId = web3.eth.net.getId()
+
+        //check to see if the networkId is setData (working)
+        const networkData = KryptoBird.networks[networkId]
+
+        //check to see if we are hooked up correctly
+        if(networkData){
+            
+        }
     }
 
     constructor(props){
