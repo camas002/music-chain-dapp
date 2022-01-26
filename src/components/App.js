@@ -32,7 +32,7 @@ class App extends Component {
         const networkId = web3.eth.net.getId()
 
         //check to see if the networkId is setData (working)
-        const networkData = KryptoBird.networks[networkId]
+        const networkData = Kryptomuz.networks[networkId]
 
         //check to see if we are hooked up correctly
         if(networkData){
@@ -50,6 +50,20 @@ class App extends Component {
     render() {
         return (
             <div>
+                <nav className='navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow'>
+                    <div className='navbar-brand col-sm-3 col-md-3 mr-0' style={{color:'white'}}>
+                        Kryptomuz NFT's
+                    </div>
+                    <ul className='navbar-nav px-3'>
+                        <l className='nav-item text-nowrap d-none d-sm-none d-sm-block'>
+                            <small className='text-white'>
+                                {this.state.account}
+                            </small>
+                        </l>
+                        
+                    </ul>
+                </nav>
+                <br></br><br></br>
                 <h1>NFT Marketplace</h1>
             </div>
         )
