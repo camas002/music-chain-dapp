@@ -11,7 +11,7 @@ body {
 }
 
 .head-bord {
-    width: 50%;
+    display: inline-flex;
     margin: auto;
     background-color: rgb(255, 95, 31);
     border-radius: 30px;
@@ -56,6 +56,7 @@ img {
     margin-bottom: 5rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
+    margin: 3rem;
 }
 
 .coverterTitle{
@@ -64,4 +65,12 @@ img {
     padding-top: 10px;
     justify-content: center;
     height: fit-content;
+}
+
+.outerContainer{
+    width: max-content;
+}
+
+.separateContainers{
+    display: inline-flex;
 }

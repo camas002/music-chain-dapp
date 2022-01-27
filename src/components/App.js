@@ -23,6 +23,8 @@ class App extends Component {
       contract: "",
       totalSupply: 0,
       kryptoBirdz: [],
+      nftName: "",
+      collectionName: "",
     };
   }
 
@@ -180,25 +182,66 @@ class App extends Component {
 
         <div className="container-fluid mt-1">
           <div className="head-bord row">
-            <main role="main" className="col-lg-12 d-flex text-center">
-              <div className="content mr-auto ml-auto" style={{ opacity: "0.8" }}>
+            <main role="main" className="outerContainer">
+              <div className="content mr-auto ml-auto" style={{ opacity: "0.8", display: "inline-flex", flexDirection: "column", flexWrap: "nowrap", alignItems: "center" }}>
 
                 {/* Main Title */}
-                <h1 style={{ color: "black", paddingBottom: "30px" }}>
+                <h1 style={{ color: "black", padding: "20px", display: "inline-flex"}}>
                   KryptoMuz - NFT Marketplace
                 </h1>
 
+              <div className="separateContainers">
+
                 {/* Converter Container */}
                 <div className="coverterContainer">
-                  <h2 className="coverterTitle">HOW TO GET STARTED</h2>
+                  <h2 className="coverterTitle">STEP 1</h2>
                   <p> Instructions </p>
 
                   <br/>
 
                   <div>
                     <form 
-                      onSubmit={(event) => {
-                        event.preventDefault();
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        const kryptoBird = this.kryptoBird.value;
+                        this.mint(kryptoBird);
+                      }}
+                    >
+                      {/* Add file location */}
+                      <p> Instructions </p>
+                      <input
+                        type="text"
+                        placeholder="add file location"
+                        className="mb-1"
+                        ref={(input) => (this.kryptoBird = input)}
+                        style={{textAlignLast:"center"}}
+                      />
+
+                      <br/>
+
+                      {/* MINT BUTTON(SUBMIT) */}
+                      <input
+                        style={{ margin: "1rem" }}
+                        type="submit"
+                        value="CONNECT"
+                        className="btn btn-primary btn-black"
+                      />
+                      
+                    </form>
+                  </div>
+                </div>
+
+                {/* Converter Container */}
+                <div className="coverterContainer">
+                  <h2 className="coverterTitle">STEP 2</h2>
+                  <p> Instructions </p>
+
+                  <br/>
+
+                  <div>
+                    <form 
+                      onSubmit={(e) => {
+                        e.preventDefault();
                         const kryptoBird = this.kryptoBird.value;
                         this.mint(kryptoBird);
                       }}
@@ -210,7 +253,7 @@ class App extends Component {
                         placeholder="add collection name"
                         className="mb-1"
                         onChange={this.onChangeTextfield}
-                        ref={(input) => (this.kryptoBird = input)}
+                        value={this.collectionName}
                         style={{textAlignLast:"center"}}
                       />
 
@@ -221,30 +264,58 @@ class App extends Component {
                         placeholder="add NFT name"
                         className="mb-1"
                         onChange={this.onChangeTextfield}
-                        ref={(input) => (this.kryptoBird = input)}
+                        value={this.nftName}
                         style={{textAlignLast:"center"}}
                       />
 
                       {/* Add PNG file */}
                       <p> Instructions </p>
                       <input 
-                        type="text"
+                        type="file"
                         placeholder="add PNG file"
                         className="mb-1"
-                        ref={(input) => (this.kryptoBird = input)}
                         style={{textAlignLast:"center"}}
                       />
                       
                       {/* Add WAV or MP3 file */}
                       <p> Instructions </p>
                       <input 
-                        type="text"
+                        type="file"
                         placeholder="add audio file"
                         className="mb-1"
                         ref={(input) => (this.kryptoBird = input)}
                         style={{textAlignLast:"center"}}
                       />
 
+                      <br/>
+
+                      {/* MINT BUTTON(SUBMIT) */}
+                      <input
+                        style={{ margin: "1rem" }}
+                        type="submit"
+                        value="CONVERT"
+                        className="btn btn-primary btn-black"
+                      />
+                      
+                    </form>
+                  </div>
+                </div>
+
+                {/* Converter Container */}
+                <div className="coverterContainer">
+                  <h2 className="coverterTitle">STEP 3</h2>
+                  <p> Instructions </p>
+
+                  <br/>
+
+                  <div>
+                    <form 
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        const kryptoBird = this.kryptoBird.value;
+                        this.mint(kryptoBird);
+                      }}
+                    >
                       {/* Add file location */}
                       <p> Instructions </p>
                       <input
@@ -267,7 +338,7 @@ class App extends Component {
                       
                     </form>
                   </div>
-
+                </div>
                 </div>
               </div>
             </main>
