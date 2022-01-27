@@ -20,6 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       account: "",
+      accountDisplay: "Not Connected",
       contract: "",
       totalSupply: 0,
       kryptoMuz: [],
@@ -75,6 +76,7 @@ class App extends Component {
     //set the account property in state
     this.setState({
       account: accounts[0],
+      accountDisplay: "Connected"
     });
 
     //get the network id to which metamask is connected
@@ -184,7 +186,7 @@ class App extends Component {
 
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className="text-white">Account: {this.state.account}</small>
+              <small className="text-white">Account: {this.state.accountDisplay}</small>
             </li>
           </ul>
         </nav>
