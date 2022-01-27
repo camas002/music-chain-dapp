@@ -26,6 +26,15 @@ class App extends Component {
     };
   }
 
+
+  onChangeTextfield = (e) =>{
+    let field = e.target.name;
+    let value = e.target.value;
+    this.setState({
+      [field]: value,
+    });
+  }
+
   //load web3
 
   //this function will execute automatically when page renders(refresh)
@@ -145,18 +154,22 @@ class App extends Component {
         });
       });
   };
+
+
   //render component
   //JSX
   render() {
     return (
       <div className="container-filled">
         {console.log(this.state.kryptoBirdz)}
+
+        {/* Nav bar */}
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
           <div
             className="navbar-brand col-sm-3 col-md-3 mr-0"
             style={{ color: "white" }}
           >
-            Krypto Birdz NFTs (Non Fungible Tokens)
+            Krypto Muz NFTs (Non Fungible Tokens)
           </div>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
@@ -164,40 +177,116 @@ class App extends Component {
             </li>
           </ul>
         </nav>
+
         <div className="container-fluid mt-1">
           <div className="row">
             <main role="main" className="col-lg-12 d-flex text-center">
-              <div
-                className="content mr-auto ml-auto"
-                style={{ opacity: "0.8" }}
-              >
-                <h1 style={{ color: "black" }}>
-                  KryptoBirdz - NFT Marketplace
+              <div className="content mr-auto ml-auto" style={{ opacity: "0.8" }}>
+
+                {/* Main Title */}
+                <h1 style={{ color: "black", paddingBottom: "30px" }}>
+                  KryptoMuz - NFT Marketplace
                 </h1>
-                <form
-                  onSubmit={(event) => {
-                    event.preventDefault();
-                    const kryptoBird = this.kryptoBird.value;
-                    this.mint(kryptoBird);
-                  }}
-                >
-                  <input
-                    type="text"
-                    placeholder="add file location"
-                    className="mb-1"
-                    ref={(input) => (this.kryptoBird = input)}
-                  />
-                  <input
-                    style={{ margin: "6px" }}
-                    type="submit"
-                    value="MINT"
-                    className="btn btn-primary btn-black"
-                  />
-                </form>
+
+                {/* Converter Container */}
+                <div className="coverterContainer">
+                  <h2 className="coverterTitle">HOW TO GET STARTED</h2>
+                  <p> Instructions </p>
+
+                  <br/>
+
+                  <div>
+                    <form 
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        const kryptoBird = this.kryptoBird.value;
+                        this.mint(kryptoBird);
+                      }}
+                    >
+                      {/* Name of Collection */}
+                      <p> Instructions </p>
+                      <input 
+                        type="text"
+                        placeholder="add collection name"
+                        className="mb-1"
+                        onChange={this.onChangeTextfield}
+                        ref={(input) => (this.kryptoBird = input)}
+                        style={{textAlignLast:"center"}}
+                      />
+
+                      {/* Name of NFT */}
+                      <p> Instructions </p>
+                      <input 
+                        type="text"
+                        placeholder="add NFT name"
+                        className="mb-1"
+                        onChange={this.onChangeTextfield}
+                        ref={(input) => (this.kryptoBird = input)}
+                        style={{textAlignLast:"center"}}
+                      />
+
+                      {/* Add PNG file */}
+                      <p> Instructions </p>
+                      <input 
+                        type="text"
+                        placeholder="add PNG file"
+                        className="mb-1"
+                        ref={(input) => (this.kryptoBird = input)}
+                        style={{textAlignLast:"center"}}
+                      />
+                      
+                      {/* Add WAV or MP3 file */}
+                      <p> Instructions </p>
+                      <input 
+                        type="text"
+                        placeholder="add audio file"
+                        className="mb-1"
+                        ref={(input) => (this.kryptoBird = input)}
+                        style={{textAlignLast:"center"}}
+                      />
+
+                      {/* Add file location */}
+                      <p> Instructions </p>
+                      <input
+                        type="text"
+                        placeholder="add file location"
+                        className="mb-1"
+                        ref={(input) => (this.kryptoBird = input)}
+                        style={{textAlignLast:"center"}}
+                      />
+
+                      <br/>
+
+                      {/* MINT BUTTON(SUBMIT) */}
+                      <input
+                        style={{ margin: "1rem" }}
+                        type="submit"
+                        value="MINT"
+                        className="btn btn-primary btn-black"
+                      />
+                      
+                    </form>
+                  </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                
               </div>
             </main>
           </div>
-          <hr></hr>
+
+          <hr/>
+
+          {/*  if map is successful than renturn the following */}
           <div className="row text-center">
             {this.state.kryptoBirdz.map((kryptoBird, key) => {
               return (
@@ -216,7 +305,7 @@ class App extends Component {
                       <MDBCardBody>
                         <MDBCardTitle>KryptoBirdz</MDBCardTitle>
                         <MDBCardText>
-                          The KryptoBirdz are 20 uniquely generated Kbridz from
+                          The KryptoMuz are 20 uniquely generated Kbridz from
                           cyberpunk cloud galaxy , There is only one of each
                           bird and each bird can be owned by single person on
                           ethereum blockchain{" "}
@@ -229,6 +318,7 @@ class App extends Component {
               );
             })}
           </div>
+
         </div>
       </div>
     );

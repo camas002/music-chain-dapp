@@ -47,3 +47,22 @@ img {
     text-align: center;
     top: 15%;
 }
+
+.coverterContainer{
+    width: calc(25rem);
+    height: auto;
+    background-color: white;
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.coverterTitle{
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+    justify-content: center;
+    height: fit-content;
+}
