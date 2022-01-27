@@ -37,8 +37,6 @@ class App extends Component {
     });
   }
 
-  //load web3
-
   //this function will execute automatically when page renders(refresh)
   async componentDidMount() {
     await this.loadWeb3();
@@ -54,10 +52,15 @@ class App extends Component {
     //if there is a provider then let's log that it's working
     //and access the window from dom to set Web3 to the provider
     if (provider) {
+
+      // Request user to connect their wallet.
+      await provider.request({method: 'eth_requestAccounts'});  
       console.log("ethereum wallet connected");
 
       //creating new instance of web3
       window.web3 = new Web3(provider);
+      // document.location.reload();
+      
     } else {
       //if there is no ethereum provider
       console.log("no ethereum wallet detected");
@@ -173,6 +176,8 @@ class App extends Component {
           >
             DApollo (Non Fungible Tokens)
           </div>
+          <button class="enableEthereumButton">Enable Ethereum</button>
+
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
               <small className="text-white">Account: {this.state.account}</small>
