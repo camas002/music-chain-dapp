@@ -8,9 +8,11 @@ Make sure you are in the source file.
 2. Truffle (global installation)
 3. Metamask.io (hooked up on the browser)
 
+**optional way of running truffle in windows**
+./node_modules/.bin/truffle
 
 **To run the project**
-1. run 'truffle complie'
+1. run 'truffle compile'
 2. run 'truffle migrate --reset'
 3. run 'truffle test'
 4. run 'npm start'
