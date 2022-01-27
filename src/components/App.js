@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Web3 from "web3";
 import detectEthereumProvider from "@metamask/detect-provider";
-import KryptoBird from "../abis/KryptoBird.json";
+import KryptoMuz from "../abis/KryptoMuz.json";
 import {
   MDBCard,
   MDBCardBody,
@@ -22,7 +22,7 @@ class App extends Component {
       account: "",
       contract: "",
       totalSupply: 0,
-      kryptoBirdz: [],
+      kryptoMuz: [],
       nftName: "",
       collectionName: "",
     };
@@ -81,9 +81,9 @@ class App extends Component {
     //get the network id to which metamask is connected
     const networkId = await web3.eth.net.getId();
 
-    //check whether KryptoBird contract is deployed to
+    //check whether KryptoMuz contract is deployed to
     //network with same network id to which metamask is connected
-    //KryptoBird.networks = '5777' : {address:'', data:''}
+    //KryptoMuz.networks = '5777' : {address:'', data:''}
     //networkId is a key inside 'networks' property
     //networkId key contains a value as object with property address, transaction hash and events
     // "networks": {
@@ -93,11 +93,11 @@ class App extends Component {
     //         "address": "0x99161b9611B6F9d96c7e55736895AE1aa61AA102",
     //             "transactionHash": "0xdbf53eb4f35e33de22025d95e0bf41e1675052842a8f174fde4cb15b51f923a1"
     //     }
-    const networkData = KryptoBird.networks[networkId];
+    const networkData = KryptoMuz.networks[networkId];
 
     //check whether the network id is same
     if (networkData) {
-      //KryptoBird.networks = '5777' : {address:'', data:''}
+      //KryptoMuz.networks = '5777' : {address:'', data:''}
       //networkId is a key inside networks property
       //networkId contains a value as object with property ad
       // "networks": {
@@ -109,7 +109,7 @@ class App extends Component {
       //     }
 
       //get abi of contract from abi property
-      const abi = KryptoBird.abi;
+      const abi = KryptoMuz.abi;
 
       //get network address from networkId property
       const address = networkData.address;
@@ -120,26 +120,26 @@ class App extends Component {
       this.setState({ contract });
       // console.log(this.state.contract);
 
-      //call the total supply of Krypto Birdz
+      //call the total supply of Krypto Muz
       //grab the total supply on the front end and log the results
       const totalSupply = await contract.methods.totalSupply().call();
       this.setState({ totalSupply });
       console.log(this.state.totalSupply);
 
       //set up an array to keep track of tokens
-      //load kryptoBirdz
+      //load kryptoMuz
 
       for (let i = 1; i <= totalSupply; i++) {
-        let KryptoBird = await contract.methods.kryptoBirdz(i - 1).call();
+        let KryptoMuz = await contract.methods.kryptoMuz(i - 1).call();
 
         //how should we handle the state on the front end?
         //store the tokens minted so far
         this.setState({
-          kryptoBirdz: [...this.state.kryptoBirdz, KryptoBird],
+          kryptoMuz: [...this.state.kryptoMuz, KryptoMuz],
         });
       }
 
-      //console.log(this.state.kryptoBirdz);
+      //console.log(this.state.kryptoMuz);
     }
     //if network id of metamask does not match to the network id
     //of the network to which contract is deployed
@@ -149,13 +149,13 @@ class App extends Component {
   }
 
   //with minting we are sending information and we need to specify the account
-  mint = (kryptoBird) => {
+  mint = (kryptoMuz) => {
     this.state.contract.methods
-      .mint(kryptoBird)
+      .mint(kryptoMuz)
       .send({ from: this.state.account })
       .once("receipt", (receipt) => {
         this.setState({
-          kryptoBirdz: [...this.state.kryptoBirdz, KryptoBird],
+          kryptoMuz: [...this.state.kryptoMuz, KryptoMuz],
         });
       });
   };
@@ -166,7 +166,7 @@ class App extends Component {
   render() {
     return (
       <div className="container-filled">
-        {console.log(this.state.kryptoBirdz)}
+        {console.log(this.state.kryptoMuz)}
 
         {/* Nav bar */}
         <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0 shadow">
@@ -208,8 +208,8 @@ class App extends Component {
                     <form 
                       onSubmit={(e) => {
                         e.preventDefault();
-                        const kryptoBird = this.kryptoBird.value;
-                        this.mint(kryptoBird);
+                        const kryptoMuz = this.kryptoMuz.value;
+                        this.mint(kryptoMuz);
                       }}
                     >
                       {/* Add file location */}
@@ -218,7 +218,7 @@ class App extends Component {
                         type="text"
                         placeholder="add file location"
                         className="mb-1"
-                        ref={(input) => (this.kryptoBird = input)}
+                        ref={(input) => (this.kryptoMuz = input)}
                         style={{textAlignLast:"center"}}
                       />
 
@@ -247,8 +247,8 @@ class App extends Component {
                     <form 
                       onSubmit={(e) => {
                         e.preventDefault();
-                        const kryptoBird = this.kryptoBird.value;
-                        this.mint(kryptoBird);
+                        const kryptoMuz = this.kryptoMuz.value;
+                        this.mint(kryptoMuz);
                       }}
                     >
                       {/* Name of Collection */}
@@ -288,7 +288,7 @@ class App extends Component {
                         type="file"
                         placeholder="add audio file"
                         className="mb-1"
-                        ref={(input) => (this.kryptoBird = input)}
+                        ref={(input) => (this.kryptoMuz = input)}
                         style={{textAlignLast:"center"}}
                       />
 
@@ -317,8 +317,8 @@ class App extends Component {
                     <form 
                       onSubmit={(e) => {
                         e.preventDefault();
-                        const kryptoBird = this.kryptoBird.value;
-                        this.mint(kryptoBird);
+                        const kryptoMuz = this.kryptoMuz.value;
+                        this.mint(kryptoMuz);
                       }}
                     >
                       {/* Add file location */}
@@ -327,7 +327,7 @@ class App extends Component {
                         type="text"
                         placeholder="add file location"
                         className="mb-1"
-                        ref={(input) => (this.kryptoBird = input)}
+                        ref={(input) => (this.kryptoMuz = input)}
                         style={{textAlignLast:"center"}}
                       />
 
@@ -353,7 +353,7 @@ class App extends Component {
 
           {/*  if map is successful than renturn the following */}
           <div className="row text-center">
-            {this.state.kryptoBirdz.map((kryptoBird, key) => {
+            {this.state.kryptoMuz.map((kryptoMuz, key) => {
               return (
                 <div>
                   <div>
@@ -362,20 +362,20 @@ class App extends Component {
                       style={{ maxWidth: "22rem" }}
                     >
                       <MDBCardImage
-                        src={kryptoBird}
+                        src={kryptoMuz}
                         position="top"
                         height="250rem"
                         style={{ marginRight: "4px" }}
                       />
                       <MDBCardBody>
-                        <MDBCardTitle>KryptoBirdz</MDBCardTitle>
+                        <MDBCardTitle>KryptoMuz</MDBCardTitle>
                         <MDBCardText>
-                          The KryptoMuz are 20 uniquely generated Kbridz from
+                          The KryptoMuz are 20 uniquely generated KMUZ from
                           cyberpunk cloud galaxy , There is only one of each
-                          bird and each bird can be owned by single person on
+                          music and each music can be owned by single person on
                           ethereum blockchain{" "}
                         </MDBCardText>
-                        <MDBBtn href={kryptoBird}>Download</MDBBtn>
+                        <MDBBtn href={kryptoMuz}>Download</MDBBtn>
                       </MDBCardBody>
                     </MDBCard>
                   </div>
