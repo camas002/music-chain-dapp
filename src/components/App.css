@@ -21,25 +21,6 @@ body {
     0px 0px 15px 2px rgb(255, 95, 31);
 }
 
-.glow {
-    margin-top: 20px;
-    font-size: 60px;
-    color: #fff;
-    text-align: center;
-    -webkit-animation: glow 2s ease-in-out infinite alternate;
-    -moz-animation: glow 2s ease-in-out infinite alternate;
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 0px rgba(255, 255, 255, 0.226), 0 0 10px rgba(255, 255, 255, 0.246), 0 0 20px #e67b00;
-  }
-  to {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.274), 0 0 30px #ff944d, 0 0 40px #ff944d;
-  }
-}
-
 .token {
     width: 300px;
     box-shadow: 0 8px 16px rgba(5, 5, 5, 0.3);
