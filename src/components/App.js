@@ -191,13 +191,13 @@ class App extends Component {
               <div className="content mr-auto ml-auto" style={{ opacity: "0.8", display: "inline-flex", flexDirection: "column", flexWrap: "nowrap", alignItems: "center" }}>
 
                 {/* Main Title */}
-                <h1 style={{ color: "black", padding: "20px", display: "inline-flex"}}>
+                {/* <h1 style={{ color: "black", padding: "20px", display: "inline-flex"}}>
                   KryptoMuz - NFT Marketplace
-                </h1>
+                </h1> */}
 
               <div className="separateContainers">
 
-                {/* Converter Container */}
+                {/* STEP 1 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 1</h2>
                   <p> Instructions </p>
@@ -208,8 +208,7 @@ class App extends Component {
                     <form 
                       onSubmit={(e) => {
                         e.preventDefault();
-                        const kryptoBird = this.kryptoBird.value;
-                        this.mint(kryptoBird);
+                        
                       }}
                     >
                       {/* Add file location */}
@@ -236,7 +235,7 @@ class App extends Component {
                   </div>
                 </div>
 
-                {/* Converter Container */}
+                {/* STEP 2 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 2</h2>
                   <p> Instructions </p>
@@ -306,7 +305,7 @@ class App extends Component {
                   </div>
                 </div>
 
-                {/* Converter Container */}
+                {/* STEP 3 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 3</h2>
                   <p> Instructions </p>
