@@ -37,6 +37,10 @@ class App extends Component {
     });
   }
 
+  async componentDidMount(){
+    this.connectWallet()
+  }
+
 
   //detect ethereum provider in browser
   async loadWeb3() {
@@ -136,10 +140,11 @@ class App extends Component {
 
       //console.log(this.state.kryptoMuz);
     }
+    
+    else {
     //if network id of metamask does not match to the network id
     //of the network to which contract is deployed
-    else {
-      window.alert("smart contract not deployed");
+      window.alert("ERROR: Network id of metamask does not match the network id of the network to which you wish to deploy contracts to. Please make sure to connect to the right network.");
     }
   }
 
