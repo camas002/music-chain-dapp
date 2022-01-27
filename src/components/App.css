@@ -10,6 +10,10 @@ body {
     background-color: rgb(255, 95, 31);
 }
 
+.bg-lorange{
+    background-color: rgb(255, 179, 118);
+}
+
 .head-bord {
     display: inline-flex;
     margin: auto;
