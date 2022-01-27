@@ -290,7 +290,6 @@ class App extends Component {
                         type="file"
                         placeholder="add audio file"
                         className="mb-1"
-                        ref={(input) => (this.kryptoMuz = input)}
                         style={{textAlignLast:"center"}}
                       />
 
