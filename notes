@@ -9,7 +9,7 @@ we have 5 contracts:
 4. ERC721Metadata - contains ERC721Metadata contract functions defined in EIP for ERC721MetaData
                   - inherits ERC165 contract
 5. ERC721Connector - inherits ERC721MetaData and ERC721Enumerable
-6.KryptoBirdz -  main NFT Contract
+6.KryptoMuz -  main NFT Contract
              - inherits ERC721Connector
 
 we have 4 interfaces:
