@@ -164,22 +164,22 @@ class App extends Component {
         {console.log(this.state.kryptoBirdz)}
 
         {/* Nav bar */}
-        <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0 shadow">
           <div
             className="navbar-brand col-sm-3 col-md-3 mr-0"
             style={{ color: "white" }}
           >
-            Krypto Muz NFTs (Non Fungible Tokens)
+            DApollo (Non Fungible Tokens)
           </div>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className="text-white">{this.state.account}</small>
+              <small className="text-white">Account: {this.state.account}</small>
             </li>
           </ul>
         </nav>
 
         <div className="container-fluid mt-1">
-          <div className="row">
+          <div className="head-bord row">
             <main role="main" className="col-lg-12 d-flex text-center">
               <div className="content mr-auto ml-auto" style={{ opacity: "0.8" }}>
 
@@ -268,18 +268,7 @@ class App extends Component {
                     </form>
                   </div>
 
-
                 </div>
-
-
-
-
-
-
-
-
-
-                
               </div>
             </main>
           </div>
