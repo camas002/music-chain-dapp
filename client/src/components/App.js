@@ -19,7 +19,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      account: "",
+      account: "No Account Available",
       accountDisplay: "Not Connected",
       contract: "",
       totalSupply: 0,
@@ -173,6 +173,7 @@ class App extends Component {
   render() {
     return (
       <div className="container-filled">
+        
         {console.log(this.state.kryptoMuz)}
 
         {/* Nav bar */}
@@ -183,14 +184,17 @@ class App extends Component {
           >
             DApollo NFT
           </div>
-
+          
           <ul className="navbar-nav px-3">
-            <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className="text-white">Account: {this.state.accountDisplay}</small>
-            </li>
+            <ul className="ul-style">
+              <li className="ul-category"> Wallet Status: {this.state.accountDisplay}
+                <ul className="ul-hidelist ul-style">
+                  <li className="ul-accountlabel">Account: {this.state.account}</li>
+                </ul>
+              </li>
+            </ul>
           </ul>
         </nav>
-
         <div className="container-fluid mt-1">
           <div className="head-bord row">
             <main role="main" className="outerContainer">
