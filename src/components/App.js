@@ -161,6 +161,10 @@ class App extends Component {
   };
 
 
+  // connectWallet = async () => {
+  //   await provider.request({method: 'eth_requestAccounts'});  
+  // }
+
   //render component
   //JSX
   render() {
@@ -176,7 +180,6 @@ class App extends Component {
           >
             DApollo (Non Fungible Tokens)
           </div>
-          <button class="enableEthereumButton">Enable Ethereum</button>
 
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
@@ -208,27 +211,17 @@ class App extends Component {
                     <form 
                       onSubmit={(e) => {
                         e.preventDefault();
-                        const kryptoBird = this.kryptoBird.value;
-                        this.mint(kryptoBird);
+                        //this.loadWeb3();
                       }}
                     >
                       {/* Add file location */}
                       <p> Instructions </p>
-                      <input
-                        type="text"
-                        placeholder="add file location"
-                        className="mb-1"
-                        ref={(input) => (this.kryptoBird = input)}
-                        style={{textAlignLast:"center"}}
-                      />
-
-                      <br/>
 
                       {/* MINT BUTTON(SUBMIT) */}
                       <input
                         style={{ margin: "1rem" }}
                         type="submit"
-                        value="CONNECT"
+                        value="CONNECT WALLET"
                         className="btn btn-primary btn-black"
                       />
                       
