@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Web3 from "web3";
 import detectEthereumProvider from "@metamask/detect-provider";
 import KryptoMuz from "../abis/KryptoMuz.json";
+import axios from 'axios';
 import {
   MDBCard,
   MDBCardBody,
@@ -26,9 +27,14 @@ class App extends Component {
       kryptoMuz: [],
       nftName: "",
       collectionName: "",
+      selectedPNG: null,
+      selectedAudio: null,
     };
   }
 
+  async componentDidMount(){
+    this.connectWallet()
+  }
 
   onChangeTextfield = (e) =>{
     let field = e.target.name;
@@ -38,10 +44,21 @@ class App extends Component {
     });
   }
 
-  async componentDidMount(){
-    this.connectWallet()
+ onChangeFileUpload = (e) =>{
+    let field = e.target.name;
+    let value = e.target.files[0];
+    this.setState({
+      [field]: value,
+      loaded: 0,
+    })
   }
 
+//  onChangeAudio=event=>{
+//     this.setState({
+//       selectedAudio: event.target.files[0],
+//       loaded: 0,
+//     })
+//   }
 
   //detect ethereum provider in browser
   async loadWeb3() {
@@ -282,6 +299,9 @@ class App extends Component {
                         type="file"
                         placeholder="add PNG file"
                         className="mb-1"
+                        name="selectedPNG"
+                        value={this.selectedPNG}
+                        onChange={this.onChangeFileUpload}
                         style={{textAlignLast:"center"}}
                       />
                       
@@ -291,6 +311,9 @@ class App extends Component {
                         type="file"
                         placeholder="add audio file"
                         className="mb-1"
+                        name="selectedAudio"
+                        value={this.selectedAudio}
+                        onChange={this.onChangeFileUpload}
                         style={{textAlignLast:"center"}}
                       />
 
