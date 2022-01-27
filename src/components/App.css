@@ -6,6 +6,15 @@ body {
     background-color: rgb(255, 179, 118);
 }
 
+a{
+    color: #3375d2;
+    font-size: large;
+}
+
+p{
+    margin-bottom: 5px;
+}
+
 .bg-orange{
     background-color: rgb(255, 95, 31);
 }
@@ -21,8 +30,6 @@ body {
     border-radius: 30px;
     border:solid;
     border-color: rgb(255, 95, 31);
-    box-shadow: 
-    0px 0px 15px 2px rgb(255, 95, 31);
 }
 
 .token {
@@ -77,4 +84,12 @@ img {
 
 .separateContainers{
     display: inline-flex;
+}
+
+.containerDescription{
+    display: inline-flex;
+    flex-direction: column;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    align-items: center;
 }

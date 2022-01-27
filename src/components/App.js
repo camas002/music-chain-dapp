@@ -37,11 +37,6 @@ class App extends Component {
     });
   }
 
-  //this function will execute automatically when page renders(refresh)
-  async componentDidMount() {
-    await this.loadWeb3();
-    await this.loadBlockchainData();
-  }
 
   //detect ethereum provider in browser
   async loadWeb3() {
@@ -161,9 +156,10 @@ class App extends Component {
   };
 
 
-  // connectWallet = async () => {
-  //   await provider.request({method: 'eth_requestAccounts'});  
-  // }
+  connectWallet = async () => {
+    await this.loadWeb3();
+    await this.loadBlockchainData();
+  }
 
   //render component
   //JSX
@@ -173,12 +169,12 @@ class App extends Component {
         {console.log(this.state.kryptoMuz)}
 
         {/* Nav bar */}
-        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0 shadow">
+        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0">
           <div
             className="navbar-brand col-sm-3 col-md-3 mr-0"
             style={{ color: "white" }}
           >
-            DApollo (Non Fungible Tokens)
+            DApollo NFT
           </div>
 
           <ul className="navbar-nav px-3">
@@ -203,36 +199,31 @@ class App extends Component {
                 {/* STEP 1 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 1</h2>
-                  <p> Instructions </p>
+                  <h5><b>Connect to MetaMask</b></h5>
 
                   <br/>
 
-                  <div>
+                  <div style={{display: "inline-flex", height: "calc(17rem)", flexDirection: "column", justifyContent: "space-around"}}>
                     <form 
                       onSubmit={(e) => {
                         e.preventDefault();
-                        
+                        this.connectWallet();
                       }}
                     >
-                      {/* Add file location */}
-                      <p> Instructions </p>
-                      <input
-                        type="text"
-                        placeholder="add file location"
-                        className="mb-1"
-                        ref={(input) => (this.kryptoMuz = input)}
-                        style={{textAlignLast:"center"}}
-                      />
+                      <div className="containerDescription">
+                        <p> Download the MetaMask Extension to your browser</p>
+                        <a href="https://metamask.io/download/" target="blank">MetaMask Extension</a>
+                      </div>
+                      
+                      <br/><br/><br/>
 
-                      <br/>
-
-                      {/* MINT BUTTON(SUBMIT) */}
-                      <input
-                        style={{ margin: "1rem" }}
-                        type="submit"
-                        value="CONNECT WALLET"
-                        className="btn btn-primary btn-black"
-                      />
+                      {/* CONNECT WALLET (SUBMIT) */}
+                      <div className="containerDescription">
+                        <p> Connect your wallet to MetaMask</p>
+                        <button style={{ margin: "0.5rem" }} type="submit" className="btn btn-primary btn-black">
+                          CONNECT WALLET
+                        </button>
+                      </div>
                       
                     </form>
                   </div>
@@ -249,8 +240,7 @@ class App extends Component {
                     <form 
                       onSubmit={(e) => {
                         e.preventDefault();
-                        const kryptoMuz = this.kryptoMuz.value;
-                        this.mint(kryptoMuz);
+                        
                       }}
                     >
                       {/* Name of Collection */}
