@@ -135,3 +135,11 @@ img {
 .ul-category:hover .ul-hidelist{
     display: block;
 }
+
+.customHomeLogo{
+    width: 3.5rem;
+    box-shadow: none;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+    margin-right: 1rem;
+}

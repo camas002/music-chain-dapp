@@ -3,6 +3,7 @@ import Web3 from "web3";
 import detectEthereumProvider from "@metamask/detect-provider";
 import KryptoMuz from "../abis/KryptoMuz.json";
 import axios from 'axios';
+import homeLogo from '../logo/homeLogo.png';
 import {
   MDBCard,
   MDBCardBody,
@@ -209,23 +210,24 @@ class App extends Component {
         {console.log(this.state.kryptoMuz)}
 
         {/* Nav bar */}
-        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0" style={{height: "3.5rem"}}>
+        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0" style={{height: "3.5rem", width: "100%"}}>
+      
           <div
-            className="navbar-brand col-sm-3 col-md-3 mr-0"
-            style={{ color: "white" }}
+            style={{ color: "white", display: "contents"}}
           >
-            DApollo NFT Marketplace
-          </div>
+           <div style={{paddingLeft: "5rem", fontSize: "23px", display: "inline-flex", alignItems: "center"}}><img src={homeLogo} className="customHomeLogo" alt="" loading="lazy"/> <b>DApollo</b> </div> <div><h4 style={{paddingLeft: "7rem"}}>NFT Marketplace</h4></div>
+          
           
           <ul className="navbar-nav px-3">
             <ul className="ul-style">
-              <li className="ul-category" > Wallet Status: {this.state.accountDisplay}
+              <li className="ul-category" > <b>Wallet:</b> {this.state.accountDisplay === "Connected" ? <p style={{color:"green", display: "contents" }}><b>{this.state.accountDisplay}</b></p> : <p style={{color:"red", display: "contents" }}><b>{this.state.accountDisplay}</b></p>}
                 <ul className="ul-hidelist ul-style">
                   <li className="ul-accountlabel">Account: {this.state.account}</li>
                 </ul>
               </li>
             </ul>
           </ul>
+          </div>
         </nav>
         <div className="container-fluid mt-1">
           <div className="head-bord row">
@@ -267,7 +269,7 @@ class App extends Component {
                           CONNECT WALLET
                         </button>
                       </div>
-                      <p style={{color:"green" }}><b>{this.state.accountDisplay}</b></p>
+                      {this.state.accountDisplay === "Connected" ? <p style={{color:"green" }}><b>{this.state.accountDisplay}</b></p> : <p style={{color:"red" }}><b>{this.state.accountDisplay}</b></p>}
                     </form>
                   </div>
                 </div>
