@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors'); 
 const multer = require('multer')
 const PORT = 3001;
-const http = require('http');
+// const http = require('http');
 
 // This is to allow our api to receive data from a client app
 app.use(express.urlencoded({extended: true}));
@@ -29,6 +29,7 @@ var storage = multer.diskStorage({
   })
   
 var upload = multer({ storage: storage }).array('file')
+console.log(upload)
 
 app.get('/',function(req,res){
     return res.send('Hello Server')

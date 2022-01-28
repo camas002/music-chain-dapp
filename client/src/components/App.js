@@ -4,6 +4,7 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import KryptoMuz from "../abis/KryptoMuz.json";
 import axios from 'axios';
 import homeLogo from '../logo/homeLogo.png';
+
 import {
   MDBCard,
   MDBCardBody,
@@ -28,8 +29,8 @@ class App extends Component {
       kryptoMuz: [],
       nftName: "",
       collectionName: "",
-      selectedPNG: null,
-      selectedAudio: null,
+      PNG: null,
+      Audio: null,
       automaticSwitch: "off"
     };
   }
@@ -48,16 +49,32 @@ class App extends Component {
     this.setState({
       [field]: value,
     });
+
+    console.log(`${field} : ${value}`)
   }
 
- onChangeFileUpload = (e) =>{
-    let field = e.target.name;
-    let value = e.target.files[0];
-    this.setState({
-      [field]: value,
-      loaded: 0,
-    })
-  }
+ onChangeUploadPNG = (e) =>{
+
+    // if (value.size > 1024){
+    //   alert(`Error: File ${field} size too big`)
+    // }else{
+      this.setState({
+        PNG: e.target.files[0],
+        loaded: 0,
+      })
+
+      console.log(e.target.files[0])
+    }
+
+  onChangeUploadAudio = (e) =>{
+      this.setState({
+        Audio: e.target.files[0],
+        loaded: 0,
+      })
+  
+      console.log(e.target.files[0])
+      }
+  //}
 
 //  onChangeAudio=event=>{
 //     this.setState({
@@ -201,6 +218,26 @@ class App extends Component {
     })
   }
 
+
+  onClickHandler = async (e) => {
+    e.preventDefault();
+    const data = new FormData() 
+    data.append('collectionName', this.state.collectionName)
+    data.append('nftName', this.state.nftName)
+    data.append('PNG', this.state.PNG)
+    data.append('Audio', this.state.Audio)
+
+    console.log(data)
+    await axios.post("http://localhost:3001/upload", data)
+      .then(res => { 
+        console.log(res)
+      }).catch((err) => alert("File Upload Error"));
+
+  }
+
+
+
+
   //render component
   //JSX
   render() {
@@ -284,10 +321,9 @@ class App extends Component {
 
                   <div>
                     <form 
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        
-                      }}
+                      onSubmit={
+                        this.onClickHandler
+                      }
                     >
                       {/* Name of Collection */}
                       <p> Instructions </p>
@@ -295,8 +331,9 @@ class App extends Component {
                         type="text"
                         placeholder="add collection name"
                         className="mb-1"
+                        name="collectionName"
                         onChange={this.onChangeTextfield}
-                        value={this.collectionName}
+                        value={this.state.collectionName}
                         style={{textAlignLast:"center"}}
                       />
 
@@ -306,22 +343,25 @@ class App extends Component {
                         type="text"
                         placeholder="add NFT name"
                         className="mb-1"
+                        name="nftName"
                         onChange={this.onChangeTextfield}
-                        value={this.nftName}
+                        value={this.state.nftName}
                         style={{textAlignLast:"center"}}
                       />
 
                       {/* Add PNG file */}
                       <p> Instructions </p>
+                      <div class="file-upload-wrapper">
                       <input 
                         type="file"
                         placeholder="add PNG file"
-                        className="mb-1"
-                        name="selectedPNG"
-                        value={this.selectedPNG}
-                        onChange={this.onChangeFileUpload}
+                        className="mb-1 file-upload"
+                        id="input-file-now"
+                        name="PNG"
+                        onChange={this.onChangeUploadPNG}
                         style={{textAlignLast:"center"}}
                       />
+                      </div>
                       
                       {/* Add WAV or MP3 file */}
                       <p> Instructions </p>
@@ -329,9 +369,8 @@ class App extends Component {
                         type="file"
                         placeholder="add audio file"
                         className="mb-1"
-                        name="selectedAudio"
-                        value={this.selectedAudio}
-                        onChange={this.onChangeFileUpload}
+                        name="Audio"
+                        onChange={this.onChangeUploadAudio}
                         style={{textAlignLast:"center"}}
                       />
 
@@ -373,7 +412,7 @@ class App extends Component {
                         ref={(input) => (this.kryptoMuz = input)}
                         style={{textAlignLast:"center"}}
                       />
-
+{/* <UploadFiles /> */}
                       <br/>
 
                       {/* MINT BUTTON(SUBMIT) */}
