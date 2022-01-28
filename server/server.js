@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors'); 
+const multer = require('multer')
 const PORT = 3001;
 const http = require('http');
 
@@ -14,16 +15,27 @@ app.use(express.json());
 
 app.use(cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET"],
+    methods: ["GET, POST"],
     credentials: true
 }));
 
-const server = http.createServer(function(req, res){
-    res.write('it works')
-    res.end()
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public')
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + '-' +file.originalname )
+    }
+  })
+  
+var upload = multer({ storage: storage }).array('file')
+
+app.get('/',function(req,res){
+    return res.send('Hello Server')
 })
 
-server.listen(PORT, () => {
+
+app.listen(PORT, () => {
     console.log("\n*** " + `Listening at http://localhost:${PORT}` + " ***\n");
 });
 

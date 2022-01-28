@@ -29,11 +29,16 @@ class App extends Component {
       collectionName: "",
       selectedPNG: null,
       selectedAudio: null,
+      automaticSwitch: "off"
     };
   }
 
   async componentDidMount(){
-    this.connectWallet()
+    if(this.state.automaticSwitch === "on"){
+      this.connectWallet()
+    }else{
+      return
+    }
   }
 
   onChangeTextfield = (e) =>{
@@ -91,10 +96,17 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts();
 
     //set the account property in state
-    this.setState({
-      account: accounts[0],
-      accountDisplay: "Connected"
-    });
+    if(accounts){
+      this.setState({
+        account: accounts[0],
+        accountDisplay: "Connected"
+      });
+    }else{
+      this.setState({
+        accountDisplay: "Not Connected"
+      })
+    }
+    
 
     //get the network id to which metamask is connected
     const networkId = await web3.eth.net.getId();
@@ -183,6 +195,9 @@ class App extends Component {
   connectWallet = async () => {
     await this.loadWeb3();
     await this.loadBlockchainData();
+    this.setState({
+      automaticSwitch: "on",
+    })
   }
 
   //render component
@@ -204,7 +219,7 @@ class App extends Component {
           
           <ul className="navbar-nav px-3">
             <ul className="ul-style">
-              <li className="ul-category"> Wallet Status: {this.state.accountDisplay}
+              <li className="ul-category" > Wallet Status: {this.state.accountDisplay}
                 <ul className="ul-hidelist ul-style">
                   <li className="ul-accountlabel">Account: {this.state.account}</li>
                 </ul>
@@ -252,7 +267,7 @@ class App extends Component {
                           CONNECT WALLET
                         </button>
                       </div>
-                      
+                      <p><b>{this.state.accountDisplay}</b></p>
                     </form>
                   </div>
                 </div>

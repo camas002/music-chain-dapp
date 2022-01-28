@@ -106,7 +106,7 @@ img {
 .ul-category {
     color: rgb(255, 95, 31);
     float: right;
-    width: 600px;
+    width: 20rem;
     height: 40px;
     background-color: white;
     opacity: .8;
@@ -120,6 +120,8 @@ img {
     margin-right: auto;
     text-align: center;
     background-color: white;
+    width: max-content;
+    position: relative;
 }
 
 .ul-3:hover{
