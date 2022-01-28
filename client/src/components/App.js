@@ -218,7 +218,7 @@ class App extends Component {
            <div style={{paddingLeft: "5rem", fontSize: "23px", display: "inline-flex", alignItems: "center"}}><img src={homeLogo} className="customHomeLogo" alt="" loading="lazy"/> <b>DApollo</b> </div> <div><h4 style={{paddingLeft: "7rem"}}>NFT Marketplace</h4></div>
           
           
-          <ul className="navbar-nav px-3">
+          <ul className="navbar-nav">
             <ul className="ul-style">
               <li className="ul-category" > <b>Wallet:</b> {this.state.accountDisplay === "Connected" ? <p style={{color:"green", display: "contents" }}><b>{this.state.accountDisplay}</b></p> : <p style={{color:"red", display: "contents" }}><b>{this.state.accountDisplay}</b></p>}
                 <ul className="ul-hidelist ul-style">
@@ -229,14 +229,15 @@ class App extends Component {
           </ul>
           </div>
         </nav>
+        
         <div className="container-fluid mt-1">
           <div className="head-bord row">
             <main role="main" className="outerContainer">
               <div className="content mr-auto ml-auto" style={{ opacity: "0.8", display: "inline-flex", flexDirection: "column", flexWrap: "nowrap", alignItems: "center" }}>
 
                 {/* Main Title */}
-                {/* <h1 style={{ color: "black", padding: "20px", display: "inline-flex"}}>
-                  KryptoMuz - NFT Marketplace
+                {/* <h1 style={{ color: "black", padding: "0px", display: "inline-flex"}}>
+                  Mint your song
                 </h1> */}
 
               <div className="separateContainers">
@@ -260,7 +261,7 @@ class App extends Component {
                         <a href="https://metamask.io/download/" target="blank">MetaMask Extension</a>
                       </div>
                       
-                      <br/><br/><br/>
+                      <br/><br/><h5><b>THEN</b></h5><br/>
 
                       {/* CONNECT WALLET (SUBMIT) */}
                       <div className="containerDescription">
@@ -277,7 +278,7 @@ class App extends Component {
                 {/* STEP 2 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 2</h2>
-                  <p> Instructions </p>
+                  <h5><b>Instructions</b></h5>
 
                   <br/>
 
@@ -351,7 +352,7 @@ class App extends Component {
                 {/* STEP 3 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 3</h2>
-                  <p> Instructions </p>
+                  <h5><b>Upload image URL to Mint</b></h5>
 
                   <br/>
 
