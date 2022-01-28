@@ -209,12 +209,12 @@ class App extends Component {
         {console.log(this.state.kryptoMuz)}
 
         {/* Nav bar */}
-        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0">
+        <nav className="navbar navbar-dark fixed-top bg-orange flex-md-nowrap p-0" style={{height: "3.5rem"}}>
           <div
             className="navbar-brand col-sm-3 col-md-3 mr-0"
             style={{ color: "white" }}
           >
-            DApollo NFT
+            DApollo NFT Marketplace
           </div>
           
           <ul className="navbar-nav px-3">
@@ -267,7 +267,7 @@ class App extends Component {
                           CONNECT WALLET
                         </button>
                       </div>
-                      <p><b>{this.state.accountDisplay}</b></p>
+                      <p style={{color:"green" }}><b>{this.state.accountDisplay}</b></p>
                     </form>
                   </div>
                 </div>
