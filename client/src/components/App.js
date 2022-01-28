@@ -452,10 +452,9 @@ class App extends Component {
                       <MDBCardBody>
                         <MDBCardTitle>KryptoMuz</MDBCardTitle>
                         <MDBCardText>
-                          The KryptoMuz are 20 uniquely generated KMUZ from
-                          cyberpunk cloud galaxy , There is only one of each
-                          music and each music can be owned by single person on
-                          ethereum blockchain{" "}
+                        The KryptoMuz are one of kind individually created KMUZ from the Special Collection.
+                         Each music has just one copy, and each music may only be held by one person.
+                         {" "}
                         </MDBCardText>
                         <MDBBtn href={kryptoMuz}>Download</MDBBtn>
                       </MDBCardBody>
