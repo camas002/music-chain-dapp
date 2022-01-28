@@ -243,7 +243,7 @@ class App extends Component {
               <div className="separateContainers">
 
                 {/* STEP 1 Container */}
-                <div className="coverterContainer">
+                <div className="coverterContainer leftContainer">
                   <h2 className="coverterTitle">STEP 1</h2>
                   <h5><b>Connect to MetaMask</b></h5>
 
@@ -350,7 +350,7 @@ class App extends Component {
                 </div>
 
                 {/* STEP 3 Container */}
-                <div className="coverterContainer">
+                <div className="coverterContainer rightContainer">
                   <h2 className="coverterTitle">STEP 3</h2>
                   <h5><b>Upload image URL to Mint</b></h5>
 

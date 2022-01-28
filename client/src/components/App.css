@@ -67,7 +67,7 @@ img {
     margin-bottom: 5rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    margin: 3rem;
+    margin: 1.2rem;
 }
 
 .coverterTitle{
@@ -84,6 +84,7 @@ img {
 
 .separateContainers{
     display: inline-flex;
+    padding: 1rem;
 }
 
 .containerDescription{
@@ -142,4 +143,14 @@ img {
     padding-right: 0.5rem;
     padding-bottom: 1rem;
     margin-right: 1rem;
+}
+
+.leftContainer{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.rightContainer{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
