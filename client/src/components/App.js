@@ -227,14 +227,15 @@ class App extends Component {
             </ul>
           </ul>
         </nav>
+        
         <div className="container-fluid mt-1">
           <div className="head-bord row">
             <main role="main" className="outerContainer">
               <div className="content mr-auto ml-auto" style={{ opacity: "0.8", display: "inline-flex", flexDirection: "column", flexWrap: "nowrap", alignItems: "center" }}>
 
                 {/* Main Title */}
-                {/* <h1 style={{ color: "black", padding: "20px", display: "inline-flex"}}>
-                  KryptoMuz - NFT Marketplace
+                {/* <h1 style={{ color: "black", padding: "0px", display: "inline-flex"}}>
+                  Mint your song
                 </h1> */}
 
               <div className="separateContainers">
@@ -258,7 +259,7 @@ class App extends Component {
                         <a href="https://metamask.io/download/" target="blank">MetaMask Extension</a>
                       </div>
                       
-                      <br/><br/><br/>
+                      <br/><br/><h5><b>THEN</b></h5><br/>
 
                       {/* CONNECT WALLET (SUBMIT) */}
                       <div className="containerDescription">
@@ -275,7 +276,7 @@ class App extends Component {
                 {/* STEP 2 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 2</h2>
-                  <p> Instructions </p>
+                  <h5><b>Instructions</b></h5>
 
                   <br/>
 
@@ -349,7 +350,7 @@ class App extends Component {
                 {/* STEP 3 Container */}
                 <div className="coverterContainer">
                   <h2 className="coverterTitle">STEP 3</h2>
-                  <p> Instructions </p>
+                  <h5><b>Upload image URL to Mint</b></h5>
 
                   <br/>
 
