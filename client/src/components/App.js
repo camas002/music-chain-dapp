@@ -217,7 +217,7 @@ class App extends Component {
             DApollo NFT Marketplace
           </div>
           
-          <ul className="navbar-nav px-3">
+          <ul className="navbar-nav">
             <ul className="ul-style">
               <li className="ul-category" > Wallet Status: {this.state.accountDisplay}
                 <ul className="ul-hidelist ul-style">
