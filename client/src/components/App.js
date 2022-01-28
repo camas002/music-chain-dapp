@@ -218,7 +218,7 @@ class App extends Component {
            <div style={{paddingLeft: "5rem", fontSize: "23px", display: "inline-flex", alignItems: "center"}}><img src={homeLogo} className="customHomeLogo" alt="" loading="lazy"/> <b>DApollo</b> </div> <div><h4 style={{paddingLeft: "7rem"}}>NFT Marketplace</h4></div>
           
           
-          <ul className="navbar-nav">
+          <ul className="navbar-nav px-3">
             <ul className="ul-style">
               <li className="ul-category" > <b>Wallet:</b> {this.state.accountDisplay === "Connected" ? <p style={{color:"green", display: "contents" }}><b>{this.state.accountDisplay}</b></p> : <p style={{color:"red", display: "contents" }}><b>{this.state.accountDisplay}</b></p>}
                 <ul className="ul-hidelist ul-style">

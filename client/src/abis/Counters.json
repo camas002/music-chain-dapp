@@ -10,7 +10,7 @@
   "sourceMap": "88:958:11:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "88:958:11:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nimport './SafeMath.sol';\r\n\r\nlibrary Counters {\r\n\r\n    //use A for B , A-> library , B -> data type to use in\r\n    using SafeMath for uint256;\r\n\r\n    //build your own variable type with the keyword struct\r\n    struct Counter {\r\n\r\n        uint256 _value;\r\n\r\n    }\r\n\r\n    //we want to find the current value of a count\r\n    //we are using storage keyword to make sure data is not erased\r\n    function current(Counter storage counter) internal view returns (uint256) {\r\n        return counter._value;\r\n    }\r\n\r\n    //decrement\r\n    //we are using storage keyword to make sure data is not erased\r\n    function decrement(Counter storage counter) internal {\r\n\r\n        //x -> counter._value , y -> 1\r\n        counter._value = counter._value.subtract(1);\r\n    }\r\n\r\n    //increment\r\n    //we are using storage keyword to make sure data is not erased\r\n    function increment(Counter storage counter) internal {\r\n\r\n        //x -> counter._value , y -> 1\r\n        counter._value += 1;\r\n    }\r\n\r\n\r\n}\r\n\r\n",
-  "sourcePath": "C:\\Data\\udemy-nft-marketplace-clarian\\FRONT END PROJECT STARTER KIT\\src\\contracts\\libraries\\Counters.sol",
+  "sourcePath": "D:\\GithubRepos\\music-chain-dapp\\client\\src\\contracts\\libraries\\Counters.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/libraries/Counters.sol",
     "exportedSymbols": {
@@ -1169,7 +1169,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2021-12-29T12:18:51.494Z",
+  "updatedAt": "2022-01-28T03:22:46.659Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
