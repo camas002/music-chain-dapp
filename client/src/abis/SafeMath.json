@@ -10,7 +10,7 @@
   "sourceMap": "60:1830:12:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "60:1830:12:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nlibrary SafeMath {\r\n\r\n    //build functions to perform safe math operations\r\n    //that would replace intuitive measures\r\n\r\n    //function add r = x + y\r\n    function add(uint256 x, uint256 y) internal pure returns (uint256){\r\n        uint256 r = x + y;\r\n        require(r >= x, 'SafeMath Addition Overflow');\r\n        return r;\r\n    }\r\n\r\n    //function subtraction r = x - y\r\n    function subtract(uint256 x, uint256 y) internal pure returns (uint256){\r\n        require(y <= x, 'SafeMath Subtraction Overflow');\r\n        uint256 r = x - y;\r\n        return r;\r\n    }\r\n\r\n    //write an internally visible multiply function which ensures\r\n    //no remaining multiplication overflow using the r = x * y equation\r\n    //function multiply r = x * y\r\n    // gas optimization\r\n    function multiply(uint256 x, uint256 y) internal pure returns (uint256){\r\n        //gas optimization\r\n        if (x == 0) {\r\n            return 0;\r\n        }\r\n        uint256 r = x * y;\r\n        require(r / x == y, 'SafeMath Multiplication Overflow');\r\n        return r;\r\n    }\r\n\r\n    //solidity only automatically asserts when dividing by zero\r\n    //write an internally visible divide function which requires that y is always greater than zero\r\n    //within the equation r = x / y\r\n    function divide(uint256 x, uint256 y) internal pure returns (uint256){\r\n\r\n        require(y > 0, 'SafeMath Division Overflow');\r\n        uint256 r = x / y;\r\n        return r;\r\n    }\r\n    //write a modulo function which requires that y does not equal zero under any circumstance\r\n    //return the modulo of the equation from r = x % y\r\n    function modulo(uint256 x, uint256 y) internal pure returns (uint256){\r\n\r\n        //gas spending remains untouched\r\n        require(y != 0, 'SafeMath Module Overflow');\r\n        uint256 r = x % y;\r\n        return r;\r\n    }\r\n\r\n\r\n}\r\n",
-  "sourcePath": "C:\\Data\\udemy-nft-marketplace-clarian\\FRONT END PROJECT STARTER KIT\\src\\contracts\\libraries\\SafeMath.sol",
+  "sourcePath": "D:\\GithubRepos\\music-chain-dapp\\client\\src\\contracts\\libraries\\SafeMath.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/libraries/SafeMath.sol",
     "exportedSymbols": {
@@ -3533,7 +3533,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2021-12-29T12:18:51.497Z",
+  "updatedAt": "2022-01-28T03:22:46.662Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
