@@ -67,7 +67,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ninterface IERC721Enumerable {\r\n   \r\n    function totalSupply() external view returns (uint256);\r\n\r\n    function tokenByIndex(uint256 _index) external view returns (uint256);\r\n\r\n    function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);\r\n}\r\n",
-  "sourcePath": "D:\\GithubRepos\\music-chain-dapp\\client\\src\\contracts\\interfaces\\IERC721Enumerable.sol",
+  "sourcePath": "C:\\Users\\garci\\Documents\\GitHub\\music-chain-dapp\\client\\src\\contracts\\interfaces\\IERC721Enumerable.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/interfaces/IERC721Enumerable.sol",
     "exportedSymbols": {
@@ -662,7 +662,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-01-28T03:22:46.657Z",
+  "updatedAt": "2022-01-28T20:06:54.282Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
